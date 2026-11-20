@@ -1,0 +1,1075 @@
+[
+ {
+  "rank": 1,
+  "artist": "Julia Jacklin",
+  "album": "The Gem",
+  "label": "4AD",
+  "ca": false,
+  "to": false,
+  "found": true,
+  "year": "2026-09-25",
+  "genre": "Alternative",
+  "count": 10,
+  "cover": "covers/01.svg",
+  "tracks": [
+   {
+    "n": 1,
+    "title": "Brand New",
+    "ms": 194954,
+    "audio": "audio/clip-1.mp3"
+   },
+   {
+    "n": 2,
+    "title": "God Sometimes",
+    "ms": 221732,
+    "audio": "audio/clip-2.mp3"
+   },
+   {
+    "n": 3,
+    "title": "If I Had The Hand Of God",
+    "ms": 161817,
+    "audio": "audio/clip-3.mp3"
+   },
+   {
+    "n": 4,
+    "title": "The Hardest Thing",
+    "ms": 201993
+   },
+   {
+    "n": 5,
+    "title": "Angel Vision",
+    "ms": 221215
+   },
+   {
+    "n": 6,
+    "title": "Real Life",
+    "ms": 208656
+   },
+   {
+    "n": 7,
+    "title": "Get Away From Me (I Think I'll Love You Soon)",
+    "ms": 168524
+   },
+   {
+    "n": 8,
+    "title": "You Turned On The Tap",
+    "ms": 179788
+   },
+   {
+    "n": 9,
+    "title": "Walk On Me",
+    "ms": 363281
+   },
+   {
+    "n": 10,
+    "title": "I Wish (feat. The Maes)",
+    "ms": 180282
+   }
+  ]
+ },
+ {
+  "rank": 2,
+  "artist": "Megan Martin",
+  "album": "Shatter EP",
+  "label": "Self-Released",
+  "ca": true,
+  "to": true,
+  "found": true,
+  "year": "2026-09-18",
+  "genre": "Alternative",
+  "count": 5,
+  "cover": "covers/02.svg",
+  "tracks": [
+   {
+    "n": 1,
+    "title": "Shatter",
+    "ms": 230298,
+    "audio": "audio/clip-4.mp3"
+   },
+   {
+    "n": 2,
+    "title": "She Talks To Him",
+    "ms": 215661,
+    "audio": "audio/clip-1.mp3"
+   },
+   {
+    "n": 3,
+    "title": "Abigail",
+    "ms": 173787,
+    "audio": "audio/clip-2.mp3"
+   },
+   {
+    "n": 4,
+    "title": "You",
+    "ms": 151443
+   },
+   {
+    "n": 5,
+    "title": "It's Kind Of Obvious",
+    "ms": 214667
+   }
+  ]
+ },
+ {
+  "rank": 3,
+  "artist": "Leon Bridges",
+  "album": "Happiness ANytime: Part 1 & 2",
+  "label": "Columbia",
+  "ca": false,
+  "to": false,
+  "found": true,
+  "year": "2026-09-25",
+  "genre": "R&B/Soul",
+  "count": 12,
+  "cover": "covers/03.svg",
+  "tracks": [
+   {
+    "n": 1,
+    "title": "Light the Way",
+    "ms": 211562,
+    "audio": "audio/clip-3.mp3"
+   },
+   {
+    "n": 2,
+    "title": "Tears of Joy",
+    "ms": 162549,
+    "audio": "audio/clip-4.mp3"
+   },
+   {
+    "n": 3,
+    "title": "Illusion",
+    "ms": 184902,
+    "audio": "audio/clip-1.mp3"
+   },
+   {
+    "n": 4,
+    "title": "Your Love Is Electric",
+    "ms": 222166
+   },
+   {
+    "n": 5,
+    "title": "Talk It Over",
+    "ms": 178702
+   },
+   {
+    "n": 6,
+    "title": "Happiness Anytime",
+    "ms": 158332
+   },
+   {
+    "n": 7,
+    "title": "All Day, All Night",
+    "ms": 242609
+   },
+   {
+    "n": 8,
+    "title": "Fly Baby",
+    "ms": 182489
+   },
+   {
+    "n": 9,
+    "title": "Watch You Dance",
+    "ms": 147720
+   },
+   {
+    "n": 10,
+    "title": "The Way It Goes",
+    "ms": 186447
+   },
+   {
+    "n": 11,
+    "title": "Take My Hand",
+    "ms": 216441
+   },
+   {
+    "n": 12,
+    "title": "Please Don't Say Goodbye",
+    "ms": 168792
+   }
+  ]
+ },
+ {
+  "rank": 4,
+  "artist": "Remi Wolf",
+  "album": "Mud",
+  "label": "Island",
+  "ca": false,
+  "to": false,
+  "found": false
+ },
+ {
+  "rank": 5,
+  "artist": "Art d'Ecco",
+  "album": "Scheele's Green",
+  "label": "Paper Bag",
+  "ca": true,
+  "to": false,
+  "found": false
+ },
+ {
+  "rank": 6,
+  "artist": "Avery Laird",
+  "album": "Sleepwalker",
+  "label": "Self-Released",
+  "ca": true,
+  "to": true,
+  "found": true,
+  "year": "2026-10-13",
+  "genre": "Indie Rock",
+  "count": 9,
+  "cover": "covers/06.svg",
+  "tracks": [
+   {
+    "n": 1,
+    "title": "Doomed",
+    "ms": 338976,
+    "audio": "audio/clip-2.mp3"
+   },
+   {
+    "n": 2,
+    "title": "Let Down",
+    "ms": 172030,
+    "audio": "audio/clip-3.mp3"
+   },
+   {
+    "n": 3,
+    "title": "The Same",
+    "ms": 266262,
+    "audio": "audio/clip-4.mp3"
+   },
+   {
+    "n": 4,
+    "title": "Every Corner",
+    "ms": 206140
+   },
+   {
+    "n": 5,
+    "title": "Hairpin",
+    "ms": 143578
+   },
+   {
+    "n": 6,
+    "title": "The Park",
+    "ms": 159425
+   },
+   {
+    "n": 7,
+    "title": "Bottlecap",
+    "ms": 167613
+   },
+   {
+    "n": 8,
+    "title": "Lucky",
+    "ms": 223537
+   },
+   {
+    "n": 9,
+    "title": "Figure It Out",
+    "ms": 283155
+   }
+  ]
+ },
+ {
+  "rank": 7,
+  "artist": "Francis Arevalo",
+  "album": "Home, Grown",
+  "label": "Self-Released",
+  "ca": true,
+  "to": false,
+  "found": true,
+  "year": "2026-06-21",
+  "genre": "Hip-Hop/Rap",
+  "count": 1,
+  "cover": "covers/07.svg",
+  "tracks": [
+   {
+    "n": 1,
+    "title": "Home, Grown (feat. Roya Bennett)",
+    "ms": 235413,
+    "audio": "audio/clip-1.mp3"
+   }
+  ]
+ },
+ {
+  "rank": 8,
+  "artist": "Jon McKiel",
+  "album": "Gold Horatio",
+  "label": "You've Changed",
+  "ca": true,
+  "to": false,
+  "found": true,
+  "year": "2026-09-11",
+  "genre": "Indie Rock",
+  "count": 10,
+  "cover": "covers/08.svg",
+  "tracks": [
+   {
+    "n": 1,
+    "title": "For Shadow",
+    "ms": 171680,
+    "audio": "audio/clip-2.mp3"
+   },
+   {
+    "n": 2,
+    "title": "Guru",
+    "ms": 195951,
+    "audio": "audio/clip-3.mp3"
+   },
+   {
+    "n": 3,
+    "title": "Wrong Heaven",
+    "ms": 144368,
+    "audio": "audio/clip-4.mp3"
+   },
+   {
+    "n": 4,
+    "title": "Rosemary",
+    "ms": 180717
+   },
+   {
+    "n": 5,
+    "title": "Order",
+    "ms": 175543
+   },
+   {
+    "n": 6,
+    "title": "Stinging Reflection",
+    "ms": 182986
+   },
+   {
+    "n": 7,
+    "title": "Feeling Around",
+    "ms": 206029
+   },
+   {
+    "n": 8,
+    "title": "Pass Life",
+    "ms": 226115
+   },
+   {
+    "n": 9,
+    "title": "Watching The River",
+    "ms": 158609
+   },
+   {
+    "n": 10,
+    "title": "Conduit pt. 2",
+    "ms": 285282
+   }
+  ]
+ },
+ {
+  "rank": 9,
+  "artist": "Secondhand Dreamcar",
+  "album": "Get Ready",
+  "label": "Self-Released",
+  "ca": true,
+  "to": false,
+  "found": true,
+  "year": "2026-09-25",
+  "genre": "Contemporary R&B",
+  "count": 9,
+  "cover": "covers/09.svg",
+  "tracks": [
+   {
+    "n": 1,
+    "title": "It's All the Same",
+    "ms": 233665,
+    "audio": "audio/clip-1.mp3"
+   },
+   {
+    "n": 2,
+    "title": "Working Title",
+    "ms": 240670,
+    "audio": "audio/clip-2.mp3"
+   },
+   {
+    "n": 3,
+    "title": "Take Your Mind Off It, Baby",
+    "ms": 174470,
+    "audio": "audio/clip-3.mp3"
+   },
+   {
+    "n": 4,
+    "title": "Get Ready",
+    "ms": 290440
+   },
+   {
+    "n": 5,
+    "title": "Where All the Time has Gone",
+    "ms": 320570
+   },
+   {
+    "n": 6,
+    "title": "It\u2019s Too Late (To Do the Right Thing Now)",
+    "ms": 326650
+   },
+   {
+    "n": 7,
+    "title": "I Don\u2019t Want Anything from You",
+    "ms": 299580
+   },
+   {
+    "n": 8,
+    "title": "You Didn\u2019t Know Me",
+    "ms": 244826
+   },
+   {
+    "n": 9,
+    "title": "Meet Me in the Morning",
+    "ms": 395513
+   }
+  ]
+ },
+ {
+  "rank": 10,
+  "artist": "Andy Shauf",
+  "album": "the afterparty",
+  "label": "Anti",
+  "ca": true,
+  "to": false,
+  "found": false
+ },
+ {
+  "rank": 11,
+  "artist": "Reuben and the Dark",
+  "album": "If You Know Me You Know My Brother",
+  "label": "Pulling Up Arrows",
+  "ca": true,
+  "to": false,
+  "found": false
+ },
+ {
+  "rank": 12,
+  "artist": "True Mountain Laurel",
+  "album": "Angel So Bad",
+  "label": "Birthday Cake",
+  "ca": true,
+  "to": false,
+  "found": true,
+  "year": "2026-08-28",
+  "genre": "Alternative",
+  "count": 8,
+  "cover": "covers/12.svg",
+  "tracks": [
+   {
+    "n": 1,
+    "title": "Angel So Bad",
+    "ms": 172945,
+    "audio": "audio/clip-4.mp3"
+   },
+   {
+    "n": 2,
+    "title": "Holy Hell",
+    "ms": 163395,
+    "audio": "audio/clip-1.mp3"
+   },
+   {
+    "n": 3,
+    "title": "Bird of Prey",
+    "ms": 160225,
+    "audio": "audio/clip-2.mp3"
+   },
+   {
+    "n": 4,
+    "title": "East of Anything",
+    "ms": 171460
+   },
+   {
+    "n": 5,
+    "title": "Sunny",
+    "ms": 167612
+   },
+   {
+    "n": 6,
+    "title": "I Love You, Nicole",
+    "ms": 191755
+   },
+   {
+    "n": 7,
+    "title": "Angel Reprise",
+    "ms": 60489
+   },
+   {
+    "n": 8,
+    "title": "The Trial",
+    "ms": 213468
+   }
+  ]
+ },
+ {
+  "rank": 13,
+  "artist": "Greg Freeman",
+  "album": "All Set The Bone",
+  "label": "Canvasback/Transgressive",
+  "ca": false,
+  "to": false,
+  "found": false
+ },
+ {
+  "rank": 14,
+  "artist": "Bad Waitress",
+  "album": "In the Hollow",
+  "label": "Stomp",
+  "ca": true,
+  "to": true,
+  "found": false
+ },
+ {
+  "rank": 15,
+  "artist": "Olivia Penalva",
+  "album": "Exit Wounds",
+  "label": "Self-Released",
+  "ca": true,
+  "to": false,
+  "found": false
+ },
+ {
+  "rank": 16,
+  "artist": "Beabadoobee",
+  "album": "PYLON",
+  "label": "Merge",
+  "ca": false,
+  "to": false,
+  "found": true,
+  "year": "2026-09-16",
+  "genre": "Rock",
+  "count": 14,
+  "cover": "covers/16.svg",
+  "tracks": [
+   {
+    "n": 1,
+    "title": "Pylon",
+    "ms": 215256,
+    "audio": "audio/clip-3.mp3"
+   },
+   {
+    "n": 2,
+    "title": "Sun Has Set",
+    "ms": 141804,
+    "audio": "audio/clip-4.mp3"
+   },
+   {
+    "n": 3,
+    "title": "Estranged",
+    "ms": 178282,
+    "audio": "audio/clip-1.mp3"
+   },
+   {
+    "n": 4,
+    "title": "Switchblade",
+    "ms": 181927
+   },
+   {
+    "n": 5,
+    "title": "Write Me A Letter",
+    "ms": 194103
+   },
+   {
+    "n": 6,
+    "title": "It's Alright",
+    "ms": 171309
+   },
+   {
+    "n": 7,
+    "title": "In Motion",
+    "ms": 187992
+   },
+   {
+    "n": 8,
+    "title": "Memories",
+    "ms": 168734
+   },
+   {
+    "n": 9,
+    "title": "Nothing To Prove",
+    "ms": 144316
+   },
+   {
+    "n": 10,
+    "title": "Radio",
+    "ms": 160231
+   },
+   {
+    "n": 11,
+    "title": "Powerlines",
+    "ms": 178391
+   },
+   {
+    "n": 12,
+    "title": "Spark",
+    "ms": 167800
+   },
+   {
+    "n": 13,
+    "title": "Despite That",
+    "ms": 89679
+   },
+   {
+    "n": 14,
+    "title": "Satellite",
+    "ms": 285425
+   }
+  ]
+ },
+ {
+  "rank": 17,
+  "artist": "Slow Pulp",
+  "album": "Melodie",
+  "label": "Anti-",
+  "ca": false,
+  "to": false,
+  "found": false
+ },
+ {
+  "rank": 18,
+  "artist": "Sylvan Esso",
+  "album": "Ow",
+  "label": "Psychic Hotline",
+  "ca": false,
+  "to": false,
+  "found": false
+ },
+ {
+  "rank": 19,
+  "artist": "Fontaines D.C.",
+  "album": "Dopamine Chamber",
+  "label": "XL Recordings",
+  "ca": false,
+  "to": false,
+  "found": false
+ },
+ {
+  "rank": 20,
+  "artist": "Eau the Music",
+  "album": "Light in the Dark",
+  "label": "Self-Released",
+  "ca": true,
+  "to": false,
+  "found": true,
+  "year": "2026-10-16",
+  "genre": "Indie Rock",
+  "count": 9,
+  "cover": "covers/20.svg",
+  "tracks": [
+   {
+    "n": 1,
+    "title": "In This Silence",
+    "ms": 218199,
+    "audio": "audio/clip-2.mp3"
+   },
+   {
+    "n": 2,
+    "title": "Can't Explain",
+    "ms": 193530,
+    "audio": "audio/clip-3.mp3"
+   },
+   {
+    "n": 3,
+    "title": "Life (Redux)",
+    "ms": 239887,
+    "audio": "audio/clip-4.mp3"
+   },
+   {
+    "n": 4,
+    "title": "Dark Star",
+    "ms": 241823
+   },
+   {
+    "n": 5,
+    "title": "Ici Par L\u00e0/The Rest of Me",
+    "ms": 171050
+   },
+   {
+    "n": 6,
+    "title": "Light in the Dark",
+    "ms": 217576
+   },
+   {
+    "n": 7,
+    "title": "Dreams",
+    "ms": 229609
+   },
+   {
+    "n": 8,
+    "title": "All We Have",
+    "ms": 230866
+   },
+   {
+    "n": 9,
+    "title": "We Are All Stars",
+    "ms": 213145
+   }
+  ]
+ },
+ {
+  "rank": 21,
+  "artist": "Lady Marge",
+  "album": "Beer League",
+  "label": "Self-Released",
+  "ca": true,
+  "to": true,
+  "found": true,
+  "year": "2026-09-02",
+  "genre": "Rock",
+  "count": 10,
+  "cover": "covers/21.svg",
+  "tracks": [
+   {
+    "n": 1,
+    "title": "Nice To Meet You",
+    "ms": 183351,
+    "audio": "audio/clip-1.mp3"
+   },
+   {
+    "n": 2,
+    "title": "Smoke Break",
+    "ms": 210000,
+    "audio": "audio/clip-2.mp3"
+   },
+   {
+    "n": 3,
+    "title": "Rose Garden",
+    "ms": 225730,
+    "audio": "audio/clip-3.mp3"
+   },
+   {
+    "n": 4,
+    "title": "Slow Death",
+    "ms": 279431
+   },
+   {
+    "n": 5,
+    "title": "El Rondo",
+    "ms": 219649
+   },
+   {
+    "n": 6,
+    "title": "Black Smoke",
+    "ms": 256332
+   },
+   {
+    "n": 7,
+    "title": "Tom Cat",
+    "ms": 183109
+   },
+   {
+    "n": 8,
+    "title": "B.I.C.",
+    "ms": 344653
+   },
+   {
+    "n": 9,
+    "title": "Wake Him Up",
+    "ms": 297785
+   },
+   {
+    "n": 10,
+    "title": "Beer League",
+    "ms": 279953
+   }
+  ]
+ },
+ {
+  "rank": 22,
+  "artist": "Ada Lea",
+  "album": "the end is a wave",
+  "label": "Next Door",
+  "ca": true,
+  "to": false,
+  "found": true,
+  "year": "2026-08-12",
+  "genre": "Indie Rock",
+  "count": 7,
+  "cover": "covers/22.svg",
+  "tracks": [
+   {
+    "n": 1,
+    "title": "copycat",
+    "ms": 205216,
+    "audio": "audio/clip-4.mp3"
+   },
+   {
+    "n": 2,
+    "title": "i've never been in love",
+    "ms": 230027,
+    "audio": "audio/clip-1.mp3"
+   },
+   {
+    "n": 3,
+    "title": "the evergreen, the birch",
+    "ms": 179051,
+    "audio": "audio/clip-2.mp3"
+   },
+   {
+    "n": 4,
+    "title": "okay, ok, o.k.!",
+    "ms": 157493
+   },
+   {
+    "n": 5,
+    "title": "phases",
+    "ms": 192405
+   },
+   {
+    "n": 6,
+    "title": "chelsea hotel #2",
+    "ms": 252507
+   },
+   {
+    "n": 7,
+    "title": "i miss the heavy shoulders of the trees",
+    "ms": 77509
+   }
+  ]
+ },
+ {
+  "rank": 23,
+  "artist": "Summersets",
+  "album": "Pine Trees In A Perfect Row",
+  "label": "Self-Released",
+  "ca": true,
+  "to": false,
+  "found": false
+ },
+ {
+  "rank": 24,
+  "artist": "Biita Houdei",
+  "album": "This Bed Was Made For Me",
+  "label": "Father/Daughter",
+  "ca": false,
+  "to": false,
+  "found": true,
+  "year": "2026-09-18",
+  "genre": "Alternative",
+  "count": 13,
+  "cover": "covers/24.svg",
+  "tracks": [
+   {
+    "n": 1,
+    "title": "The Ground Here",
+    "ms": 200730,
+    "audio": "audio/clip-3.mp3"
+   },
+   {
+    "n": 2,
+    "title": "Fennel Knows",
+    "ms": 294232,
+    "audio": "audio/clip-4.mp3"
+   },
+   {
+    "n": 3,
+    "title": "Frog Song",
+    "ms": 189708,
+    "audio": "audio/clip-1.mp3"
+   },
+   {
+    "n": 4,
+    "title": "Time Go Time Gone",
+    "ms": 258261
+   },
+   {
+    "n": 5,
+    "title": "Life Inside the Hourglass",
+    "ms": 162046
+   },
+   {
+    "n": 6,
+    "title": "Burnin\u2019",
+    "ms": 206717
+   },
+   {
+    "n": 7,
+    "title": "Quiet and Warm Willed",
+    "ms": 111697
+   },
+   {
+    "n": 8,
+    "title": "Adelaide",
+    "ms": 187759
+   },
+   {
+    "n": 9,
+    "title": "Night Fright",
+    "ms": 236676
+   },
+   {
+    "n": 10,
+    "title": "This Bed Was Made For Me",
+    "ms": 55858
+   },
+   {
+    "n": 11,
+    "title": "Peach in the Briar",
+    "ms": 224944
+   },
+   {
+    "n": 12,
+    "title": "Window in the Winter",
+    "ms": 218109
+   },
+   {
+    "n": 13,
+    "title": "Bud Worth Biting",
+    "ms": 109295
+   }
+  ]
+ },
+ {
+  "rank": 25,
+  "artist": "Blondshell",
+  "album": "Violins",
+  "label": "Partisan",
+  "ca": false,
+  "to": false,
+  "found": false
+ },
+ {
+  "rank": 26,
+  "artist": "Lily Seabird",
+  "album": "Lightspheres On Their Way",
+  "label": "Lame-O",
+  "ca": false,
+  "to": false,
+  "found": true,
+  "year": "2026-10-02",
+  "genre": "Rock",
+  "count": 9,
+  "cover": "covers/26.svg",
+  "tracks": [
+   {
+    "n": 1,
+    "title": "The Pulley",
+    "ms": 357613,
+    "audio": "audio/clip-2.mp3"
+   },
+   {
+    "n": 2,
+    "title": "Bindlestiff",
+    "ms": 186573,
+    "audio": "audio/clip-3.mp3"
+   },
+   {
+    "n": 3,
+    "title": "Election Day",
+    "ms": 284347,
+    "audio": "audio/clip-4.mp3"
+   },
+   {
+    "n": 4,
+    "title": "Pennsy",
+    "ms": 228867
+   },
+   {
+    "n": 5,
+    "title": "Portal to the Past",
+    "ms": 422307
+   },
+   {
+    "n": 6,
+    "title": "Blackstar",
+    "ms": 328227
+   },
+   {
+    "n": 7,
+    "title": "Slipswitch",
+    "ms": 394680
+   },
+   {
+    "n": 8,
+    "title": "The Afterglow",
+    "ms": 244987
+   },
+   {
+    "n": 9,
+    "title": "Lightspheres on Their Way",
+    "ms": 403960
+   }
+  ]
+ },
+ {
+  "rank": 27,
+  "artist": "Boyhood",
+  "album": "I'll Dream InStead",
+  "label": "Hand Drawn Dracula",
+  "ca": true,
+  "to": false,
+  "found": true,
+  "year": "2026-10-23",
+  "genre": "Alternative",
+  "count": 8,
+  "cover": "covers/27.svg",
+  "tracks": [
+   {
+    "n": 1,
+    "title": "Loner",
+    "ms": 135581,
+    "audio": "audio/clip-1.mp3"
+   },
+   {
+    "n": 2,
+    "title": "A Grand Time",
+    "ms": 216514,
+    "audio": "audio/clip-2.mp3"
+   },
+   {
+    "n": 3,
+    "title": "Waiting for Something",
+    "ms": 181150,
+    "audio": "audio/clip-3.mp3"
+   },
+   {
+    "n": 4,
+    "title": "Sparkle Dub//I'll Dream InStead",
+    "ms": 156572
+   },
+   {
+    "n": 5,
+    "title": "Pissing in the Snow",
+    "ms": 211336
+   },
+   {
+    "n": 6,
+    "title": "Working",
+    "ms": 232826
+   },
+   {
+    "n": 7,
+    "title": "Fast10",
+    "ms": 277467
+   },
+   {
+    "n": 8,
+    "title": "DUI",
+    "ms": 259506
+   }
+  ]
+ },
+ {
+  "rank": 28,
+  "artist": "Clairmont the Second",
+  "album": "nnermission : Magma or A Prpagandous Film From West Side Anderson",
+  "label": "GRAIN PWRD",
+  "ca": true,
+  "to": true,
+  "found": false
+ },
+ {
+  "rank": 29,
+  "artist": "Marci",
+  "album": "Mask Lady and the Late Night Girl",
+  "label": "Arbutus",
+  "ca": true,
+  "to": false,
+  "found": false
+ },
+ {
+  "rank": 30,
+  "artist": "MorMor",
+  "album": "No One Alive Will Listen",
+  "label": "Promised Land",
+  "ca": true,
+  "to": true,
+  "found": false
+ }
+]
