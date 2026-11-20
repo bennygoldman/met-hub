@@ -1,0 +1,42 @@
+<title>A Sketch for MET</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=PT+Sans+Narrow:wght@700&display=swap">
+<style>
+/* Layout: a single letter-width column. Same type and colours as the prototype and metradio.ca. */
+:root{
+  --bg:#FFFFFF; --ink:#212529; --muted:#6C757D; --line:#DEE2E6; --teal:#44B9AA; --teal-ink:#1F7F73;
+  --head:"PT Sans Narrow","Arial Narrow",system-ui,sans-serif;
+  --body:"Open Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#111315;--ink:#E7E9EB;--muted:#9AA2AA;--line:#2E3338;--teal-ink:#6FD3C5;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#111315;--ink:#E7E9EB;--muted:#9AA2AA;--line:#2E3338;--teal-ink:#6FD3C5;color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.65;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:56px 72px}
+main{max-width:60ch;margin:0 auto;display:grid;gap:16px}
+h1,h2{font-family:var(--head);font-weight:700;line-height:1.15;margin:0;text-wrap:balance}
+h1{font-size:2.2rem;border-bottom:3px solid var(--teal);padding-bottom:8px}
+h2{font-size:1.4rem;margin-top:16px}
+p{margin:0}
+a{color:var(--teal-ink)}
+:focus-visible{outline:2px solid var(--teal);outline-offset:2px}
+.go{display:inline-block;margin-top:4px;border:1px solid var(--teal);background:var(--teal);color:#0B2B27;text-decoration:none;font-weight:600;border-radius:4px;padding:8px 16px;font-size:15px}
+</style>
+
+<main>
+  <h1>A sketch for MET</h1>
+  <p>This started with the chores you do by hand in Airtime every week, and kept going. The station already runs on a bunch of decent tools: Airtime, Spinitron, the Airtable library, the Drive folders, the website. They just don't connect with each other at all, so people end up doing the connecting.</p>
+  <p>The plan is to take pieces that already exist (LibreTime for playout, music recognition for logs, a proper library you can listen to) and put one friendly site in front of them. Hosts get a home page, the library and their show. Staff get their own tools on top, kept out of everyone else's way.</p>
+  <p>There's a rough version you can click around. The albums are from this week's Top 30 and the previews play. I could only find covers and previews for 15 of the 30, so the rest are missing. The shows and posts are real, pulled from metradio.ca. Schedules, events and logs are made up.</p>
+  <p><a class="go" href="https://claude.ai/artifact/UN7pQuawVsDpozbsUrUUpr" target="_blank" rel="noopener">Open the prototype</a></p>
+
+  <h2>Getting there</h2>
+  <p>Nothing gets switched off on day one. The home page and library come first, reading from the Airtable and Airtime that are already there. Once people like using it, the music moves out of Drive for good.</p>
+  <p>Then playout moves to LibreTime. That's where the weekly scheduling chores turn into rules like the ones in the staff view. Logging comes after, because by then playout already knows most of what aired.</p>
+  <p>If it works here, other campus stations could run their own copy and share music and charts.</p>
+
+  <h2>Someone's tried this before</h2>
+  <p><a href="https://github.com/TDXDigital/TPS" target="_blank" rel="noopener">TPS</a> was a logging, library and compliance tool for Canadian campus and community radio built for CKXU in Lethbridge around 2013. It handled compliance targets, ads inside the log and charts built from logs well. Everything was typed in by hand, though, and it was only ever an admin tool. Worth a look for what stations need to track.</p>
+</main>

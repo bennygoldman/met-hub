@@ -1,4 +1,4 @@
-<title>MET Radio Sketch</title>
+<title>MET Radio Prototype</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -27,15 +27,11 @@ p{margin:0}
 a{color:var(--teal-ink)}
 button{font:inherit;color:inherit}
 :focus-visible{outline:2px solid var(--pink);outline-offset:2px}
-.note{max-width:62ch;margin:0 auto;display:grid;gap:14px;font-size:16px}
-.note h1{font-size:2.1rem}
-.after{max-width:62ch;margin:40px auto 0;display:grid;gap:12px;font-size:15.5px}
-.after h2{font-size:1.4rem;margin-top:12px}
 .muted{color:var(--muted)}
 .small{font-size:13px}
 
 /* app frame */
-.app{max-width:1040px;margin:36px auto 0;background:var(--surface);border:1px solid var(--line);border-radius:6px;overflow:hidden;display:grid;grid-template-rows:auto minmax(560px,auto) auto}
+.app{max-width:1040px;margin:0 auto;background:var(--surface);border:1px solid var(--line);border-radius:6px;overflow:hidden;display:grid;grid-template-rows:auto minmax(560px,auto) auto}
 .topbar{display:flex;flex-wrap:wrap;align-items:center;gap:8px 20px;padding:10px 16px;border-bottom:3px solid var(--teal)}
 .brand{font-family:var(--head);font-size:22px;font-weight:700;letter-spacing:.01em}
 .brand span{color:var(--teal-ink)}
@@ -45,7 +41,6 @@ button{font:inherit;color:inherit}
 .mode{margin-left:auto;font-size:13px;background:none;border:1px solid var(--line);border-radius:4px;padding:4px 10px;cursor:pointer}
 .staffbar{border-bottom-color:var(--pink)}
 .staffbar .nav button[aria-current="page"]{background:color-mix(in srgb,var(--pink) 12%,transparent);color:var(--pink)}
-.staff-tag{font-size:12px;color:var(--pink);font-weight:600}
 .view{padding:20px 16px;display:grid;gap:26px;align-content:start;min-width:0}
 .view[hidden]{display:none}
 .view h2{font-size:1.5rem}
@@ -162,13 +157,6 @@ table.plain input[type=text]{font:inherit;width:100%;min-width:90px;border:1px s
 .toast{position:fixed;left:50%;bottom:calc(20px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);background:var(--ink);color:var(--surface);padding:8px 14px;border-radius:4px;font-size:13px}
 </style>
 
-<div class="note">
-  <h1>A sketch for MET</h1>
-  <p>This started with the chores you do by hand in Airtime every week, and kept going. The station already runs on a bunch of decent tools: Airtime, Spinitron, the Airtable library, the Drive folders, the website. They just don't connect with each other at all, so people end up doing the connecting.</p>
-  <p>The idea isn't to write radio software from scratch. It's to pick good pieces that already exist (LibreTime for playout, music recognition for logs, a proper library you can actually listen to) and put one friendly site in front of them. Hosts get a home page, the library, and their show. Staff get their own tools on top, kept out of the way of everyone else.</p>
-  <p>Below is a rough version you can click around. The albums are from this week's Top 30 and the previews play. The shows and posts are real, pulled from metradio.ca. Schedules, events and logs are made up to show the shape of things.</p>
-</div>
-
 <div class="app" id="app">
   <header class="topbar" id="topbar">
     <span class="brand">MET <span>Radio</span></span>
@@ -182,7 +170,6 @@ table.plain input[type=text]{font:inherit;width:100%;min-width:90px;border:1px s
       <button data-v="intake">New music</button>
       <button data-v="chart">Top 30</button>
     </nav>
-    <span class="staff-tag" id="staff-tag" hidden>Staff tools</span>
     <button class="mode" id="mode">Switch to staff</button>
   </header>
 
@@ -257,8 +244,8 @@ table.plain input[type=text]{font:inherit;width:100%;min-width:90px;border:1px s
     <section class="view" id="v-show" hidden>
       <h2>My show</h2>
       <div class="status">
-        <div class="row"><b>Thursday, 8 to 9 pm</b><span class="muted">Nothing uploaded for this week</span></div>
-        <p>If nothing's here by Thursday at 7, last week's episode runs again.</p>
+        <b>Thursday, 8 to 9 pm</b>
+        <p>Nothing's uploaded yet. If that's still true at 7, last week's episode runs again.</p>
         <div class="row">
           <button class="btn solid">Upload an episode</button>
           <label class="small muted" for="rerun">Rerun instead:</label>
@@ -270,7 +257,7 @@ table.plain input[type=text]{font:inherit;width:100%;min-width:90px;border:1px s
         <div class="ep" id="ep"></div>
       </div>
       <div class="sec">
-        <div class="sec-head"><h3>Last week's log</h3><span class="muted small">Filled in from playout. One track needs a name.</span></div>
+        <h3>Last week's log</h3>
         <div class="scroll"><table class="plain" id="log"></table></div>
         <p class="small" id="log-sum"></p>
         <div><button class="btn">Save log</button></div>
@@ -336,7 +323,7 @@ table.plain input[type=text]{font:inherit;width:100%;min-width:90px;border:1px s
   <footer class="player" aria-label="Player">
     <button class="np" id="np" aria-label="Open the album that's playing">
       <span class="noimg" id="np-img-wrap"></span>
-      <span class="txt"><b id="np-title">Pick something to play</b><span id="np-sub">Previews from this week's Top 30</span></span>
+      <span class="txt"><b id="np-title">Nothing playing</b><span id="np-sub"></span></span>
     </button>
     <div class="ctl">
       <div class="btns">
@@ -351,13 +338,6 @@ table.plain input[type=text]{font:inherit;width:100%;min-width:90px;border:1px s
       <button class="btn" id="p-add">+ Add to my show</button>
     </div>
   </footer>
-</div>
-
-<div class="after">
-  <h2>Getting there</h2>
-  <p>Nothing gets switched off on day one. The home page and library come first, reading from the Airtable and Airtime that are already there. Once people like using it, the music moves out of Drive for good. Then playout moves to LibreTime, which is where the scheduling chores turn into rules like the ones above. Logging comes after that, because by then playout already knows most of what aired. If it works here, other campus stations could run their own copy and share music and charts.</p>
-  <h2>Someone's tried this before</h2>
-  <p><a href="https://github.com/TDXDigital/TPS" target="_blank" rel="noopener">TPS</a> was a logging, library and compliance tool for Canadian campus and community radio built for CKXU in Lethbridge around 2013. It handled compliance targets, ads inside the log and charts built from logs really well. Everything was typed in by hand, though, and it was only ever an admin tool. Worth a look for what stations need to track.</p>
 </div>
 
 <div class="toast" id="toast" hidden></div>
@@ -384,7 +364,7 @@ function show(v){
 document.querySelectorAll(".nav button").forEach(function(b){b.onclick=function(){show(b.dataset.v)}});
 $("mode").onclick=function(){
   mode=mode==="host"?"staff":"host";
-  $("nav-host").hidden=mode!=="host";$("nav-staff").hidden=mode!=="staff";$("staff-tag").hidden=mode!=="staff";
+  $("nav-host").hidden=mode!=="host";$("nav-staff").hidden=mode!=="staff";
   $("topbar").classList.toggle("staffbar",mode==="staff");
   $("mode").textContent=mode==="host"?"Switch to staff":"Back to host view";
   show(mode==="host"?"home":"sched");
@@ -425,7 +405,7 @@ function renderGrid(){
     return true});
   var g=$("grid");
   if(!rows.length){
-    g.innerHTML='<p class="empty">'+(tagNote?"Nothing tagged yet. Artists fill this in when they send music, and the music director can add it at intake. In this sketch nobody's tagged anything.":F.show==="saved"?"Nothing saved yet. Hit ♡ Save on anything you like.":"Nothing matches. Try fewer filters.")+'</p>';return}
+    g.innerHTML='<p class="empty">'+(tagNote?"Nothing tagged yet. Artists fill this in when they send music, and the music director can add it at intake.":F.show==="saved"?"Nothing saved yet. Hit ♡ Save on anything you like.":"Nothing matches. Try fewer filters.")+'</p>';return}
   g.innerHTML=rows.map(function(a){return albBtn(a,F.show==="top")}).join("");bindAlb(g);
 }
 function openAlbum(a){
@@ -435,8 +415,8 @@ function openAlbum(a){
    '<div class="album">'+(a.cover?'<img src="'+a.cover+'" alt="Cover of '+esc(a.album)+'">':'<span class="noimg"></span>')+
    '<div class="meta"><h2>'+esc(a.album)+'</h2><div class="by">'+esc(a.artist)+leaf(a)+(a.to?' <span class="muted small">Toronto</span>':"")+'</div>'+
    '<div class="facts"><span>'+esc(a.label)+'</span><span>'+esc(a.genre||"")+'</span><span>Out '+esc(fmtDate(a.year))+'</span><span>'+a.tracks.length+(a.tracks.length===1?" track":" tracks")+'</span><span>#'+a.rank+' on the Top 30</span></div>'+
-   '<div class="actions"><button class="btn solid" id="a-play">▶ Play</button><button class="btn" id="a-save" aria-pressed="'+!!saved[a.rank]+'">'+(saved[a.rank]?"♥ Saved":"♡ Save")+'</button>'+(a.url?'<a class="btn" href="'+esc(a.url)+'" target="_blank" rel="noopener">Apple Music</a>':"")+'</div>'+
-   '<div class="mdnote muted">Music director notes go here: focus tracks, anything to bleep, how it ended up in the library.</div>'+
+   '<div class="actions"><button class="btn solid" id="a-play">Play</button><button class="btn" id="a-save" aria-pressed="'+!!saved[a.rank]+'">'+(saved[a.rank]?"♥ Saved":"♡ Save")+'</button>'+(a.url?'<a class="btn" href="'+esc(a.url)+'" target="_blank" rel="noopener">Apple Music</a>':"")+'</div>'+
+   '<div class="mdnote muted">No notes from the music director yet.</div>'+
    '<div class="tracks">'+a.tracks.map(function(t,i){
       var ok=!!t.audio,isCur=cur&&cur.a===a&&cur.i===i;
       return '<div class="trk'+(ok?"":" nop")+(isCur?" playing":"")+'" data-i="'+i+'" role="button" tabindex="'+(ok?0:-1)+'"><span class="n">'+(t.n||i+1)+'</span><span>'+esc(t.title)+'</span><span class="d">'+(t.ms?mmss(t.ms):"")+'</span><button class="add" data-add="'+i+'" aria-label="Add '+esc(t.title)+' to my show">+</button></div>'}).join("")+
@@ -501,7 +481,7 @@ function renderLog(){
     var a=byRank[p[0]];if(!a||!a.found)return;var t=a.tracks[p[1]];n++;if(a.ca)ca++;
     rows+='<tr><td class="t">'+p[2]+'</td><td>'+esc(a.artist)+'</td><td>'+esc(t.title)+'</td><td>'+esc(a.album)+'</td><td>'+(a.ca?'<i class="leaf" aria-label="Canadian">🍁</i>':"")+'</td><td class="muted">Library</td></tr>'});
   $("log").innerHTML=rows+'</tbody>';
-  $("log-sum").textContent="Canadian content: "+ca+" of "+n+" songs so far, not counting the turntable track.";
+  $("log-sum").textContent="Canadian content: "+ca+" of "+n+" songs";
 }
 
 /* ---------- staff ---------- */
@@ -514,7 +494,7 @@ function renderIntake(){
     $("queue").querySelectorAll("button").forEach(function(b){b.onclick=function(){sel=+b.dataset.k;draw()}});
     var a=q[sel];
     $("intake-form").innerHTML='<div style="display:flex;gap:14px;align-items:center">'+(a.cover?'<img src="'+a.cover+'" alt="" style="width:72px;height:72px;object-fit:cover;border-radius:3px">':"")+'<div><h3>'+esc(a.album)+'</h3><span class="muted">'+esc(a.artist)+', '+esc(a.label)+', '+a.tracks.length+' tracks</span></div></div>'+
-     '<p class="small muted">Credits and track list filled in automatically.</p>'+
+     
      '<div class="form">'+
       '<label class="k" for="ig">Genre</label><input type="text" id="ig" value="'+esc(a.genre||"")+'">'+
       '<span class="k">Canadian (MAPL)</span><span class="opts"><label><input type="checkbox"'+(a.ca?" checked":"")+'> Music</label><label><input type="checkbox"'+(a.ca?" checked":"")+'> Artist</label><label><input type="checkbox"'+(a.ca?" checked":"")+'> Performance</label><label><input type="checkbox"'+(a.ca?" checked":"")+'> Lyrics</label></span>'+
