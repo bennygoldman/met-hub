@@ -1,0 +1,545 @@
+<title>MET Radio Sketch</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;1,400&family=PT+Sans+Narrow:wght@400;700&display=swap">
+<style>
+/* Layout: a short note in a reading column, then the clickable sketch at ~1040px. Colours and type follow metradio.ca. */
+:root{
+  --bg:#F5F5F5; --surface:#FFFFFF; --ink:#212529; --muted:#6C757D; --line:#DEE2E6;
+  --teal:#44B9AA; --teal-ink:#1F7F73; --pink:#D91B5B; --soft:#EEF7F6;
+  --head:"PT Sans Narrow","Arial Narrow",system-ui,sans-serif;
+  --body:"Open Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#111315; --surface:#1A1D20; --ink:#E7E9EB; --muted:#9AA2AA; --line:#2E3338;
+  --teal:#44B9AA; --teal-ink:#6FD3C5; --pink:#F0507F; --soft:#17302D; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#111315; --surface:#1A1D20; --ink:#E7E9EB; --muted:#9AA2AA; --line:#2E3338;
+  --teal:#44B9AA; --teal-ink:#6FD3C5; --pink:#F0507F; --soft:#17302D; color-scheme:dark}
+
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:15px;line-height:1.6;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:40px 64px}
+h1,h2,h3,h4{font-family:var(--head);font-weight:700;line-height:1.15;margin:0;text-wrap:balance}
+p{margin:0}
+a{color:var(--teal-ink)}
+button{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--pink);outline-offset:2px}
+.note{max-width:62ch;margin:0 auto;display:grid;gap:14px;font-size:16px}
+.note h1{font-size:2.1rem}
+.after{max-width:62ch;margin:40px auto 0;display:grid;gap:12px;font-size:15.5px}
+.after h2{font-size:1.4rem;margin-top:12px}
+.muted{color:var(--muted)}
+.small{font-size:13px}
+
+/* app frame */
+.app{max-width:1040px;margin:36px auto 0;background:var(--surface);border:1px solid var(--line);border-radius:6px;overflow:hidden;display:grid;grid-template-rows:auto minmax(560px,auto) auto}
+.topbar{display:flex;flex-wrap:wrap;align-items:center;gap:8px 20px;padding:10px 16px;border-bottom:3px solid var(--teal)}
+.brand{font-family:var(--head);font-size:22px;font-weight:700;letter-spacing:.01em}
+.brand span{color:var(--teal-ink)}
+.nav{display:flex;flex-wrap:wrap;gap:4px}
+.nav button{background:none;border:none;padding:6px 10px;border-radius:4px;cursor:pointer;font-family:var(--head);font-size:17px}
+.nav button[aria-current="page"]{background:var(--soft);color:var(--teal-ink)}
+.mode{margin-left:auto;font-size:13px;background:none;border:1px solid var(--line);border-radius:4px;padding:4px 10px;cursor:pointer}
+.staffbar{border-bottom-color:var(--pink)}
+.staffbar .nav button[aria-current="page"]{background:color-mix(in srgb,var(--pink) 12%,transparent);color:var(--pink)}
+.staff-tag{font-size:12px;color:var(--pink);font-weight:600}
+.view{padding:20px 16px;display:grid;gap:26px;align-content:start;min-width:0}
+.view[hidden]{display:none}
+.view h2{font-size:1.5rem}
+.view h3{font-size:1.2rem}
+.sec{display:grid;gap:10px;min-width:0;align-content:start}
+.sec-head{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 14px}
+.sec-head a,.linkbtn{font-size:13px;color:var(--teal-ink);background:none;border:none;padding:0;cursor:pointer;text-decoration:underline;text-underline-offset:2px}
+
+/* home */
+.onair{display:flex;flex-wrap:wrap;align-items:center;gap:8px 14px;background:var(--soft);border-radius:4px;padding:12px 14px}
+.onair .live{font-family:var(--head);font-weight:700;color:var(--pink);letter-spacing:.04em}
+.onair b{font-family:var(--head);font-size:19px}
+.onair .grow{flex:1;min-width:0}
+.btn{border:1px solid var(--ink);background:var(--surface);border-radius:4px;padding:5px 12px;cursor:pointer;font-size:13px;font-weight:600;white-space:nowrap;text-decoration:none;color:var(--ink);display:inline-block}
+.btn.solid{background:var(--teal);border-color:var(--teal);color:#0B2B27}
+.btn[aria-pressed="true"]{background:var(--soft);border-color:var(--teal-ink);color:var(--teal-ink)}
+.yourshow{border:1px solid var(--line);border-left:4px solid var(--pink);border-radius:4px;padding:10px 14px;display:flex;flex-wrap:wrap;gap:8px 14px;align-items:center}
+.shelf{display:grid;grid-auto-flow:column;grid-auto-columns:128px;gap:14px;overflow-x:auto;padding-bottom:6px}
+.alb{display:grid;gap:4px;min-width:0;cursor:pointer;background:none;border:none;padding:0;text-align:left}
+.alb img,.alb .noimg{width:100%;aspect-ratio:1;object-fit:cover;border-radius:3px;display:block;background:var(--line)}
+.alb .t{font-weight:600;font-size:13px;line-height:1.3;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.alb .a{font-size:12.5px;color:var(--muted);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.alb .rank{font-family:var(--head);color:var(--teal-ink);font-weight:700;margin-right:4px}
+.two{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:24px}
+@media (max-width:760px){.two{grid-template-columns:minmax(0,1fr)}}
+.posts{display:grid;gap:0}
+.posts a{display:grid;gap:2px;padding:9px 0;border-bottom:1px solid var(--line);text-decoration:none;color:var(--ink)}
+.posts a:last-child{border-bottom:none}
+.posts a span{font-size:12.5px;color:var(--muted)}
+.events{display:grid;gap:0}
+.events div{display:grid;grid-template-columns:76px minmax(0,1fr) auto;gap:10px;padding:9px 0;border-bottom:1px solid var(--line);align-items:baseline}
+.events div:last-child{border-bottom:none}
+.events .d{font-family:var(--head);font-weight:700;color:var(--teal-ink)}
+
+/* crate */
+.filters{display:flex;flex-wrap:wrap;gap:8px 18px;align-items:center}
+.fgroup{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+.fgroup .lbl{font-size:12px;color:var(--muted);margin-right:2px}
+.chip{border:1px solid var(--line);background:var(--surface);border-radius:999px;padding:3px 11px;font-size:13px;cursor:pointer}
+.chip[aria-pressed="true"]{background:var(--teal);border-color:var(--teal);color:#0B2B27}
+select{font:inherit;font-size:13px;border:1px solid var(--line);background:var(--surface);color:var(--ink);border-radius:4px;padding:3px 6px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:18px 14px}
+.empty{padding:28px 0;color:var(--muted)}
+.album{display:grid;grid-template-columns:240px minmax(0,1fr);gap:24px;align-items:start}
+@media (max-width:640px){.album{grid-template-columns:minmax(0,1fr)}.album>img{max-width:240px}}
+.album>img{width:100%;aspect-ratio:1;object-fit:cover;border-radius:4px}
+.album .meta{display:grid;gap:10px;min-width:0}
+.album h2{font-size:2rem}
+.album .by{font-size:17px}
+.facts{display:flex;flex-wrap:wrap;gap:4px 16px;font-size:13px;color:var(--muted)}
+.actions{display:flex;flex-wrap:wrap;gap:8px}
+.mdnote{border-left:3px solid var(--teal);padding:4px 10px;font-size:14px}
+.tracks{display:grid;margin-top:6px}
+.trk{display:grid;grid-template-columns:28px minmax(0,1fr) auto 30px;gap:8px;align-items:center;padding:6px 6px;border-radius:3px;cursor:pointer;background:none;border:none;text-align:left;width:100%}
+.trk:hover{background:var(--soft)}
+.trk.playing{color:var(--teal-ink);font-weight:600}
+.trk.nop{cursor:default;color:var(--muted)}
+.trk.nop:hover{background:none}
+.trk .n{color:var(--muted);font-size:13px;text-align:right;font-variant-numeric:tabular-nums}
+.trk .d{color:var(--muted);font-size:13px;font-variant-numeric:tabular-nums}
+.trk .add{border:none;background:none;cursor:pointer;color:var(--teal-ink);font-size:18px;line-height:1;padding:0}
+.leaf{font-style:normal}
+
+/* my show */
+.status{display:grid;gap:10px;border:1px solid var(--line);border-radius:4px;padding:14px}
+.status .row{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.ep{display:grid}
+.ep div{display:grid;grid-template-columns:40px minmax(0,1fr) auto auto;gap:10px;align-items:center;padding:6px 0;border-bottom:1px solid var(--line)}
+.ep img{width:40px;height:40px;object-fit:cover;border-radius:2px}
+.ep .x{border:none;background:none;cursor:pointer;color:var(--muted)}
+.scroll{overflow-x:auto}
+table.plain{width:100%;border-collapse:collapse;font-size:13.5px;min-width:620px}
+table.plain th{text-align:left;font-weight:600;padding:6px 10px 6px 0;border-bottom:1px solid var(--ink)}
+table.plain td{padding:6px 10px 6px 0;border-bottom:1px solid var(--line);vertical-align:top}
+table.plain td.t{color:var(--muted);font-variant-numeric:tabular-nums;white-space:nowrap}
+table.plain input[type=text]{font:inherit;width:100%;min-width:90px;border:1px solid var(--line);background:var(--surface);color:var(--ink);padding:2px 6px;border-radius:3px}
+.form{display:grid;grid-template-columns:120px minmax(0,1fr);gap:10px 14px;align-items:center;font-size:14px}
+.form label.k{color:var(--muted)}
+.form .opts{display:flex;flex-wrap:wrap;gap:6px 14px}
+.form input[type=text],.form textarea{font:inherit;width:100%;border:1px solid var(--line);background:var(--surface);color:var(--ink);padding:4px 8px;border-radius:3px}
+@media (max-width:560px){.form{grid-template-columns:minmax(0,1fr)}}
+.intake{display:grid;grid-template-columns:minmax(0,220px) minmax(0,1fr);gap:20px}
+@media (max-width:700px){.intake{grid-template-columns:minmax(0,1fr)}}
+.queue{display:grid;gap:0}
+.queue button{display:grid;gap:2px;line-height:1.35;text-align:left;border:none;border-bottom:1px solid var(--line);background:none;padding:8px 6px;cursor:pointer}
+.queue button[aria-current="true"]{background:var(--soft)}
+.queue span{font-size:12px;color:var(--muted)}
+.chart{display:grid}
+.chart div{display:grid;grid-template-columns:28px 36px minmax(0,1fr) 54px;gap:10px;align-items:center;padding:5px 0;border-bottom:1px solid var(--line);font-size:14px}
+.chart img,.chart .noimg{width:36px;height:36px;object-fit:cover;border-radius:2px;background:var(--line)}
+.chart .r{font-family:var(--head);font-weight:700;text-align:right}
+.chart .mv{font-size:12px;color:var(--muted);text-align:right}
+
+/* player */
+.player{border-top:1px solid var(--line);background:var(--surface);padding:10px 16px;display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);gap:10px 20px;align-items:center}
+@media (max-width:720px){.player{grid-template-columns:minmax(0,1fr)}}
+.np{display:flex;gap:12px;align-items:center;min-width:0;background:none;border:none;padding:0;text-align:left;cursor:pointer}
+.np img,.np .noimg{width:52px;height:52px;border-radius:3px;object-fit:cover;flex:none;background:var(--line)}
+.np .txt{min-width:0}
+.np b{display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.np span{display:block;font-size:13px;color:var(--muted);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.ctl{display:grid;gap:4px;justify-items:center;min-width:260px}
+@media (max-width:720px){.ctl{min-width:0;justify-items:stretch}}
+.ctl .btns{display:flex;gap:10px;align-items:center;justify-content:center}
+.ctl .btns button{border:none;background:none;cursor:pointer;width:34px;height:34px;display:grid;place-items:center;border-radius:50%}
+.ctl .btns button svg{width:16px;height:16px;fill:var(--ink)}
+.ctl .btns .pp{background:var(--ink);width:38px;height:38px}
+.ctl .btns .pp svg{fill:var(--surface)}
+.seek{display:grid;grid-template-columns:34px minmax(120px,1fr) 34px;gap:8px;align-items:center;font-size:11.5px;color:var(--muted);width:100%;font-variant-numeric:tabular-nums}
+.seek .bar{height:4px;background:var(--line);border-radius:2px;position:relative;cursor:pointer}
+.seek .bar b{position:absolute;inset:0 auto 0 0;width:0;background:var(--teal);border-radius:2px}
+.pextra{display:flex;gap:8px;justify-content:flex-end;align-items:center;flex-wrap:wrap}
+@media (max-width:720px){.pextra{justify-content:flex-start}}
+.toast{position:fixed;left:50%;bottom:calc(20px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);background:var(--ink);color:var(--surface);padding:8px 14px;border-radius:4px;font-size:13px}
+</style>
+
+<div class="note">
+  <h1>A sketch for MET</h1>
+  <p>This started with the chores you do by hand in Airtime every week, and kept going. The station already runs on a bunch of decent tools: Airtime, Spinitron, the Airtable library, the Drive folders, the website. They just don't connect with each other at all, so people end up doing the connecting.</p>
+  <p>The idea isn't to write radio software from scratch. It's to pick good pieces that already exist (LibreTime for playout, music recognition for logs, a proper library you can actually listen to) and put one friendly site in front of them. Hosts get a home page, the library, and their show. Staff get their own tools on top, kept out of the way of everyone else.</p>
+  <p>Below is a rough version you can click around. The albums are from this week's Top 30 and the previews play. The shows and posts are real, pulled from metradio.ca. Schedules, events and logs are made up to show the shape of things.</p>
+</div>
+
+<div class="app" id="app">
+  <header class="topbar" id="topbar">
+    <span class="brand">MET <span>Radio</span></span>
+    <nav class="nav" id="nav-host" aria-label="Host">
+      <button data-v="home" aria-current="page">Home</button>
+      <button data-v="crate">Library</button>
+      <button data-v="show">My show</button>
+    </nav>
+    <nav class="nav" id="nav-staff" aria-label="Staff" hidden>
+      <button data-v="sched">Schedule</button>
+      <button data-v="intake">New music</button>
+      <button data-v="chart">Top 30</button>
+    </nav>
+    <span class="staff-tag" id="staff-tag" hidden>Staff tools</span>
+    <button class="mode" id="mode">Switch to staff</button>
+  </header>
+
+  <main id="views">
+    <!-- HOME -->
+    <section class="view" id="v-home">
+      <div class="onair">
+        <span class="live">ON AIR</span>
+        <span class="grow"><b>Song Talk Radio</b> <span class="muted">until 2 pm</span></span>
+        <a class="btn" href="https://www.metradio.ca" target="_blank" rel="noopener">Listen live</a>
+      </div>
+      <div class="yourshow">
+        <span style="flex:1;min-width:220px">Your show is Thursday at 8. Nothing's uploaded yet, so last week's episode will run.</span>
+        <button class="linkbtn" data-go="show">Go to my show</button>
+      </div>
+      <div class="sec">
+        <div class="sec-head"><h3>This week's Top 30</h3><button class="linkbtn" data-go="crate" data-filter="top">See all</button></div>
+        <div class="shelf" id="shelf-top"></div>
+      </div>
+      <div class="sec">
+        <div class="sec-head"><h3>New Canadian music in the library</h3><button class="linkbtn" data-go="crate" data-filter="ca">See all</button></div>
+        <div class="shelf" id="shelf-ca"></div>
+      </div>
+      <div class="two">
+        <div class="sec">
+          <h3>From the station</h3>
+          <div class="posts">
+            <a href="https://www.metradio.ca/station-blog/support-met-radio-stickin-around-fund-drive-2026/" target="_blank" rel="noopener">Stickin' Around fund drive<span>Station blog</span></a>
+            <a href="https://www.metradio.ca/station-blog/met-radio-is-hiring-a-local-journalist/" target="_blank" rel="noopener">MET Radio is hiring a local journalist<span>Station blog</span></a>
+            <a href="https://www.metradio.ca/features/patchs-top-10-under-the-radar-singer-songwriters-of-2025/" target="_blank" rel="noopener">Patch's top 10 under-the-radar singer-songwriters<span>Features</span></a>
+            <a href="https://www.metradio.ca/events/top-three-moments-of-nxne-2026/" target="_blank" rel="noopener">Top three moments of NXNE 2026<span>Events</span></a>
+          </div>
+        </div>
+        <div class="sec">
+          <h3>Coming up</h3>
+          <div class="events">
+            <div><span class="d">Sat</span><span>Studio training for new hosts</span><button class="linkbtn">I'm in</button></div>
+            <div><span class="d">Tue</span><span>Volunteer meeting</span><button class="linkbtn">I'm in</button></div>
+            <div><span class="d">Thu</span><span>Live Off the Floor taping</span><button class="linkbtn">Details</button></div>
+            <div><span class="d">Fri</span><span>Shows around town this weekend</span><button class="linkbtn">See list</button></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- LIBRARY -->
+    <section class="view" id="v-crate" hidden>
+      <div id="crate-list" class="sec" style="gap:16px">
+        <h2>Library</h2>
+        <div class="filters">
+          <div class="fgroup" id="f-show">
+            <button class="chip" data-f="all" aria-pressed="true">Everything</button>
+            <button class="chip" data-f="new" aria-pressed="false">New this month</button>
+            <button class="chip" data-f="top" aria-pressed="false">Top 30</button>
+            <button class="chip" data-f="saved" aria-pressed="false">Saved</button>
+          </div>
+          <div class="fgroup" id="f-from">
+            <button class="chip" data-f="ca" aria-pressed="false"><i class="leaf">🍁</i> Canadian</button>
+            <button class="chip" data-f="to" aria-pressed="false">Toronto</button>
+            <button class="chip" data-f="bipoc" aria-pressed="false">BIPOC</button>
+            <button class="chip" data-f="queer" aria-pressed="false">2SLGBTQIA+</button>
+            <button class="chip" data-f="women" aria-pressed="false">Women + gender-diverse</button>
+          </div>
+          <div class="fgroup"><label class="lbl" for="genre">Genre</label><select id="genre"><option value="">Any</option></select></div>
+        </div>
+        <div class="grid" id="grid"></div>
+      </div>
+      <div id="album-view" class="sec" hidden></div>
+    </section>
+
+    <!-- MY SHOW -->
+    <section class="view" id="v-show" hidden>
+      <h2>My show</h2>
+      <div class="status">
+        <div class="row"><b>Thursday, 8 to 9 pm</b><span class="muted">Nothing uploaded for this week</span></div>
+        <p>If nothing's here by Thursday at 7, last week's episode runs again.</p>
+        <div class="row">
+          <button class="btn solid">Upload an episode</button>
+          <label class="small muted" for="rerun">Rerun instead:</label>
+          <select id="rerun"><option>Last week's episode</option><option>Oldest one that hasn't rerun</option><option>Pick one…</option></select>
+        </div>
+      </div>
+      <div class="sec">
+        <div class="sec-head"><h3>Building this week's show</h3><span class="muted small" id="ep-total"></span></div>
+        <div class="ep" id="ep"></div>
+      </div>
+      <div class="sec">
+        <div class="sec-head"><h3>Last week's log</h3><span class="muted small">Filled in from playout. One track needs a name.</span></div>
+        <div class="scroll"><table class="plain" id="log"></table></div>
+        <p class="small" id="log-sum"></p>
+        <div><button class="btn">Save log</button></div>
+      </div>
+    </section>
+
+    <!-- STAFF: SCHEDULE -->
+    <section class="view" id="v-sched" hidden>
+      <h2>Schedule</h2>
+      <div class="two">
+        <div class="sec">
+          <h3>Rules</h3>
+          <div class="scroll"><table class="plain" style="min-width:420px">
+            <thead><tr><th>Rule</th><th>Where</th><th>On</th></tr></thead>
+            <tbody>
+              <tr><td>Traffic sets rotate, one at the top of each hour</td><td>Automated hours</td><td><input type="checkbox" checked aria-label="Rule on"></td></tr>
+              <tr><td>Two minutes of promos per block, no repeats in a day</td><td>Every block</td><td><input type="checkbox" checked aria-label="Rule on"></td></tr>
+              <tr><td>Empty show an hour before air: run the host's pick</td><td>Shows that opted in</td><td><input type="checkbox" checked aria-label="Rule on"></td></tr>
+              <tr><td>Overnight playlist repeats nightly</td><td>1 to 6 am</td><td><input type="checkbox" checked aria-label="Rule on"></td></tr>
+            </tbody>
+          </table></div>
+          <div><button class="btn">Add a rule</button></div>
+        </div>
+        <div class="sec">
+          <h3>Next week</h3>
+          <div class="events">
+            <div><span class="d">0</span><span>Empty hours</span><span></span></div>
+            <div><span class="d">3</span><span>Shows running a rerun</span><button class="linkbtn">See</button></div>
+            <div><span class="d">1</span><span>Promo block that's short</span><button class="linkbtn">Fix</button></div>
+            <div><span class="d">2</span><span>Logs missing from last week</span><button class="linkbtn">Nudge hosts</button></div>
+          </div>
+          <div><button class="btn solid">Send to playout</button></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- STAFF: INTAKE -->
+    <section class="view" id="v-intake" hidden>
+      <h2>New music</h2>
+      <div class="intake">
+        <div class="queue" id="queue"></div>
+        <div class="sec" id="intake-form"></div>
+      </div>
+    </section>
+
+    <!-- STAFF: CHART -->
+    <section class="view" id="v-chart" hidden>
+      <div class="sec-head"><h2>Top 30</h2><span class="muted small">Draft from this week's logs</span></div>
+      <div class="two">
+        <div class="chart" id="chart"></div>
+        <div class="sec" style="align-content:start">
+          <h3>Publish to</h3>
+          <label><input type="checkbox" checked> metradio.ca chart page</label>
+          <label><input type="checkbox" checked> Spotify playlist</label>
+          <label><input type="checkbox" checked> Newsletter</label>
+          <label><input type="checkbox" checked> Earshot</label>
+          <div><button class="btn solid">Publish</button></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="player" aria-label="Player">
+    <button class="np" id="np" aria-label="Open the album that's playing">
+      <span class="noimg" id="np-img-wrap"></span>
+      <span class="txt"><b id="np-title">Pick something to play</b><span id="np-sub">Previews from this week's Top 30</span></span>
+    </button>
+    <div class="ctl">
+      <div class="btns">
+        <button id="prev" aria-label="Previous track"><svg viewBox="0 0 16 16"><path d="M3 2h2v12H3zM14 2v12L6 8z"/></svg></button>
+        <button id="pp" class="pp" aria-label="Play"><svg viewBox="0 0 16 16" id="pp-icon"><path d="M4 2l10 6-10 6z"/></svg></button>
+        <button id="next" aria-label="Next track"><svg viewBox="0 0 16 16"><path d="M11 2h2v12h-2zM2 2v12l8-6z"/></svg></button>
+      </div>
+      <div class="seek"><span id="cur">0:00</span><div class="bar" id="bar"><b id="fill"></b></div><span id="dur">0:30</span></div>
+    </div>
+    <div class="pextra">
+      <button class="btn" id="p-save" aria-pressed="false">♡ Save</button>
+      <button class="btn" id="p-add">+ Add to my show</button>
+    </div>
+  </footer>
+</div>
+
+<div class="after">
+  <h2>Getting there</h2>
+  <p>Nothing gets switched off on day one. The home page and library come first, reading from the Airtable and Airtime that are already there. Once people like using it, the music moves out of Drive for good. Then playout moves to LibreTime, which is where the scheduling chores turn into rules like the ones above. Logging comes after that, because by then playout already knows most of what aired. If it works here, other campus stations could run their own copy and share music and charts.</p>
+  <h2>Someone's tried this before</h2>
+  <p><a href="https://github.com/TDXDigital/TPS" target="_blank" rel="noopener">TPS</a> was a logging, library and compliance tool for Canadian campus and community radio built for CKXU in Lethbridge around 2013. It handled compliance targets, ads inside the log and charts built from logs really well. Everything was typed in by hand, though, and it was only ever an admin tool. Worth a look for what stations need to track.</p>
+</div>
+
+<div class="toast" id="toast" hidden></div>
+<audio id="audio" preload="none"></audio>
+
+<script>
+(function(){
+var A=[],byRank={},saved={},episode=[],mode="host",cur=null; // cur={a:album,i:trackIndex}
+var audio=document.getElementById("audio");
+var $=function(id){return document.getElementById(id)};
+function esc(s){return String(s==null?"":s).replace(/[&<>"]/g,function(c){return{"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]})}
+function mmss(ms){var s=Math.round(ms/1000);return Math.floor(s/60)+":"+String(s%60).padStart(2,"0")}
+function leaf(a){return a.ca?' <i class="leaf" title="Canadian" aria-label="Canadian">🍁</i>':""}
+function toast(t){var el=$("toast");el.textContent=t;el.hidden=false;clearTimeout(toast.t);toast.t=setTimeout(function(){el.hidden=true},1800)}
+function cover(a,cls){return a.cover?'<img src="'+a.cover+'" alt="" loading="lazy">':'<span class="noimg'+(cls?" "+cls:"")+'"></span>'}
+function playable(a){return (a.tracks||[]).filter(function(t){return t.audio})}
+
+/* ---------- views ---------- */
+function show(v){
+  document.querySelectorAll(".view").forEach(function(s){s.hidden=s.id!=="v-"+v});
+  document.querySelectorAll(".nav button").forEach(function(b){if(b.dataset.v===v)b.setAttribute("aria-current","page");else b.removeAttribute("aria-current")});
+  if(v==="crate"){$("album-view").hidden=true;$("crate-list").hidden=false}
+}
+document.querySelectorAll(".nav button").forEach(function(b){b.onclick=function(){show(b.dataset.v)}});
+$("mode").onclick=function(){
+  mode=mode==="host"?"staff":"host";
+  $("nav-host").hidden=mode!=="host";$("nav-staff").hidden=mode!=="staff";$("staff-tag").hidden=mode!=="staff";
+  $("topbar").classList.toggle("staffbar",mode==="staff");
+  $("mode").textContent=mode==="host"?"Switch to staff":"Back to host view";
+  show(mode==="host"?"home":"sched");
+};
+document.querySelectorAll("[data-go]").forEach(function(b){b.onclick=function(){
+  if(b.dataset.filter)setFilter(b.dataset.filter);
+  show(b.dataset.go)}});
+
+/* ---------- library ---------- */
+var F={show:"all",from:{},genre:""};
+function setFilter(f){
+  if(f==="ca"){F.show="all";F.from={ca:true}}else{F.show=f;F.from={}}
+  syncChips();renderGrid();
+}
+function syncChips(){
+  document.querySelectorAll("#f-show .chip").forEach(function(c){c.setAttribute("aria-pressed",c.dataset.f===F.show)});
+  document.querySelectorAll("#f-from .chip").forEach(function(c){c.setAttribute("aria-pressed",!!F.from[c.dataset.f])});
+}
+document.querySelectorAll("#f-show .chip").forEach(function(c){c.onclick=function(){F.show=c.dataset.f;syncChips();renderGrid()}});
+document.querySelectorAll("#f-from .chip").forEach(function(c){c.onclick=function(){F.from[c.dataset.f]=!F.from[c.dataset.f];syncChips();renderGrid()}});
+$("genre").onchange=function(){F.genre=this.value;renderGrid()};
+function albBtn(a,showRank){
+  return '<button class="alb" data-r="'+a.rank+'">'+cover(a)+'<span class="t">'+(showRank?'<span class="rank">'+a.rank+'</span>':"")+esc(a.album)+'</span><span class="a">'+esc(a.artist)+leaf(a)+'</span></button>';
+}
+function bindAlb(root){root.querySelectorAll(".alb").forEach(function(b){b.onclick=function(){openAlbum(byRank[b.dataset.r])}})}
+function renderGrid(){
+  var tagNote=F.from.bipoc||F.from.queer||F.from.women;
+  var rows=A.filter(function(a){
+    if(!a.found)return false;
+    if(F.show==="new"&&!(a.year>="2026-10-10"))return false;
+    if(F.show==="saved"&&!saved[a.rank])return false;
+    if(F.from.ca&&!a.ca)return false;
+    if(F.from.to&&!a.to)return false;
+    if(F.from.bipoc&&!(a.tags||[]).includes("bipoc"))return false;
+    if(F.from.queer&&!(a.tags||[]).includes("queer"))return false;
+    if(F.from.women&&!(a.tags||[]).includes("women"))return false;
+    if(F.genre&&a.genre!==F.genre)return false;
+    return true});
+  var g=$("grid");
+  if(!rows.length){
+    g.innerHTML='<p class="empty">'+(tagNote?"Nothing tagged yet. Artists fill this in when they send music, and the music director can add it at intake. In this sketch nobody's tagged anything.":F.show==="saved"?"Nothing saved yet. Hit ♡ Save on anything you like.":"Nothing matches. Try fewer filters.")+'</p>';return}
+  g.innerHTML=rows.map(function(a){return albBtn(a,F.show==="top")}).join("");bindAlb(g);
+}
+function openAlbum(a){
+  show("crate");$("crate-list").hidden=true;var v=$("album-view");v.hidden=false;
+  var pt=playable(a);
+  v.innerHTML='<div><button class="linkbtn" id="back">← Library</button></div>'+
+   '<div class="album">'+(a.cover?'<img src="'+a.cover+'" alt="Cover of '+esc(a.album)+'">':'<span class="noimg"></span>')+
+   '<div class="meta"><h2>'+esc(a.album)+'</h2><div class="by">'+esc(a.artist)+leaf(a)+(a.to?' <span class="muted small">Toronto</span>':"")+'</div>'+
+   '<div class="facts"><span>'+esc(a.label)+'</span><span>'+esc(a.genre||"")+'</span><span>Out '+esc(fmtDate(a.year))+'</span><span>'+a.tracks.length+(a.tracks.length===1?" track":" tracks")+'</span><span>#'+a.rank+' on the Top 30</span></div>'+
+   '<div class="actions"><button class="btn solid" id="a-play">▶ Play</button><button class="btn" id="a-save" aria-pressed="'+!!saved[a.rank]+'">'+(saved[a.rank]?"♥ Saved":"♡ Save")+'</button>'+(a.url?'<a class="btn" href="'+esc(a.url)+'" target="_blank" rel="noopener">Apple Music</a>':"")+'</div>'+
+   '<div class="mdnote muted">Music director notes go here: focus tracks, anything to bleep, how it ended up in the library.</div>'+
+   '<div class="tracks">'+a.tracks.map(function(t,i){
+      var ok=!!t.audio,isCur=cur&&cur.a===a&&cur.i===i;
+      return '<div class="trk'+(ok?"":" nop")+(isCur?" playing":"")+'" data-i="'+i+'" role="button" tabindex="'+(ok?0:-1)+'"><span class="n">'+(t.n||i+1)+'</span><span>'+esc(t.title)+'</span><span class="d">'+(t.ms?mmss(t.ms):"")+'</span><button class="add" data-add="'+i+'" aria-label="Add '+esc(t.title)+' to my show">+</button></div>'}).join("")+
+   '</div></div></div>';
+  $("back").onclick=function(){v.hidden=true;$("crate-list").hidden=false};
+  $("a-play").onclick=function(){if(pt.length)play(a,a.tracks.indexOf(pt[0]))};
+  $("a-save").onclick=function(){toggleSave(a);openAlbum(a)};
+  v.querySelectorAll(".trk").forEach(function(r){
+    var i=+r.dataset.i;
+    var go=function(e){if(e.target.closest(".add"))return;if(a.tracks[i].audio)play(a,i)};
+    r.onclick=go;r.onkeydown=function(e){if(e.key==="Enter"||e.key===" "){e.preventDefault();go(e)}};
+  });
+  v.querySelectorAll("[data-add]").forEach(function(b){b.onclick=function(e){e.stopPropagation();addToShow(a,+b.dataset.add)}});
+}
+function fmtDate(d){if(!d)return"";var m=["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];var p=d.split("-");return m[+p[1]-1]+" "+(+p[2])+", "+p[0]}
+function toggleSave(a){saved[a.rank]=!saved[a.rank];toast(saved[a.rank]?"Saved":"Removed from saved");syncPlayerBtns()}
+
+/* ---------- player ---------- */
+function play(a,i){
+  cur={a:a,i:i};var t=a.tracks[i];
+  audio.src=t.audio;audio.play().catch(function(){});
+  $("np-title").textContent=t.title;$("np-sub").innerHTML=esc(a.artist)+" · "+esc(a.album);
+  var w=$("np-img-wrap");w.outerHTML=a.cover?'<img id="np-img-wrap" src="'+a.cover+'" alt="">':'<span class="noimg" id="np-img-wrap"></span>';
+  syncPlayerBtns();
+  if(!$("album-view").hidden)openAlbum(a);
+}
+function step(d){
+  if(!cur)return;var a=cur.a,i=cur.i;
+  for(var k=1;k<=a.tracks.length;k++){var j=(i+d*k+a.tracks.length)%a.tracks.length;if(a.tracks[j].audio){play(a,j);return}}
+}
+$("prev").onclick=function(){step(-1)};$("next").onclick=function(){step(1)};
+$("pp").onclick=function(){
+  if(!cur){var first=A.find(function(a){return a.found&&playable(a).length});if(first)play(first,first.tracks.indexOf(playable(first)[0]));return}
+  if(audio.paused)audio.play();else audio.pause()};
+function ppIcon(){$("pp-icon").innerHTML=audio.paused?'<path d="M4 2l10 6-10 6z"/>':'<path d="M3 2h4v12H3zM9 2h4v12H9z"/>';$("pp").setAttribute("aria-label",audio.paused?"Play":"Pause")}
+audio.onplay=ppIcon;audio.onpause=ppIcon;audio.onended=function(){step(1)};
+audio.ontimeupdate=function(){var d=audio.duration||30;$("cur").textContent=mmss(audio.currentTime*1000);$("dur").textContent=mmss(d*1000);$("fill").style.width=(audio.currentTime/d*100)+"%"};
+$("bar").onclick=function(e){if(!audio.duration)return;var r=this.getBoundingClientRect();audio.currentTime=(e.clientX-r.left)/r.width*audio.duration};
+$("np").onclick=function(){if(cur)openAlbum(cur.a)};
+function syncPlayerBtns(){var s=cur&&saved[cur.a.rank];$("p-save").textContent=s?"♥ Saved":"♡ Save";$("p-save").setAttribute("aria-pressed",!!s)}
+$("p-save").onclick=function(){if(cur)toggleSave(cur.a)};
+$("p-add").onclick=function(){if(cur)addToShow(cur.a,cur.i)};
+
+/* ---------- my show ---------- */
+function addToShow(a,i){episode.push({a:a,i:i});renderEp();toast("Added to this week's show")}
+function renderEp(){
+  var el=$("ep");
+  if(!episode.length){el.innerHTML='<p class="muted">Nothing yet. Use + on any track in the library to start a running order.</p>';$("ep-total").textContent="";return}
+  var ms=0;
+  el.innerHTML=episode.map(function(e,k){var t=e.a.tracks[e.i];ms+=t.ms||0;
+    return '<div>'+(e.a.cover?'<img src="'+e.a.cover+'" alt="">':'<span></span>')+'<span>'+esc(t.title)+' <span class="muted">· '+esc(e.a.artist)+'</span>'+leaf(e.a)+'</span><span class="muted small">'+(t.ms?mmss(t.ms):"")+'</span><button class="x" data-k="'+k+'" aria-label="Remove">✕</button></div>'}).join("");
+  $("ep-total").textContent=episode.length+(episode.length===1?" track, ":" tracks, ")+mmss(ms)+" of music";
+  el.querySelectorAll(".x").forEach(function(b){b.onclick=function(){episode.splice(+b.dataset.k,1);renderEp()}});
+}
+function renderLog(){
+  var pick=[[6,0,"8:02"],[22,0,"8:06"],[16,0,"8:09"],[8,0,"8:13"],[null,null,"8:17"],[1,0,"8:21"],[21,1,"8:25"]];
+  var rows='<thead><tr><th>Time</th><th>Artist</th><th>Title</th><th>Album</th><th>Cdn</th><th>From</th></tr></thead><tbody>'+
+   '<tr><td class="t">8:00</td><td colspan="3">Station ID</td><td></td><td class="muted">Playout</td></tr>';
+  var ca=0,n=0;
+  pick.forEach(function(p){
+    if(p[0]===null){rows+='<tr><td class="t">'+p[2]+'</td><td><input type="text" aria-label="Artist"></td><td><input type="text" aria-label="Title"></td><td><input type="text" aria-label="Album"></td><td><input type="checkbox" aria-label="Canadian"></td><td class="muted">Turntable</td></tr>';return}
+    var a=byRank[p[0]];if(!a||!a.found)return;var t=a.tracks[p[1]];n++;if(a.ca)ca++;
+    rows+='<tr><td class="t">'+p[2]+'</td><td>'+esc(a.artist)+'</td><td>'+esc(t.title)+'</td><td>'+esc(a.album)+'</td><td>'+(a.ca?'<i class="leaf" aria-label="Canadian">🍁</i>':"")+'</td><td class="muted">Library</td></tr>'});
+  $("log").innerHTML=rows+'</tbody>';
+  $("log-sum").textContent="Canadian content: "+ca+" of "+n+" songs so far, not counting the turntable track.";
+}
+
+/* ---------- staff ---------- */
+function renderIntake(){
+  var q=[byRank[24],byRank[12],byRank[27]].filter(function(a){return a&&a.found});
+  var src=["Label upload","Drive link","Physical copy"];
+  var sel=0;
+  function draw(){
+    $("queue").innerHTML=q.map(function(a,k){return '<button data-k="'+k+'" aria-current="'+(k===sel)+'">'+esc(a.album)+'<span>'+esc(a.artist)+' · '+src[k]+'</span></button>'}).join("");
+    $("queue").querySelectorAll("button").forEach(function(b){b.onclick=function(){sel=+b.dataset.k;draw()}});
+    var a=q[sel];
+    $("intake-form").innerHTML='<div style="display:flex;gap:14px;align-items:center">'+(a.cover?'<img src="'+a.cover+'" alt="" style="width:72px;height:72px;object-fit:cover;border-radius:3px">':"")+'<div><h3>'+esc(a.album)+'</h3><span class="muted">'+esc(a.artist)+', '+esc(a.label)+', '+a.tracks.length+' tracks</span></div></div>'+
+     '<p class="small muted">Credits and track list filled in automatically.</p>'+
+     '<div class="form">'+
+      '<label class="k" for="ig">Genre</label><input type="text" id="ig" value="'+esc(a.genre||"")+'">'+
+      '<span class="k">Canadian (MAPL)</span><span class="opts"><label><input type="checkbox"'+(a.ca?" checked":"")+'> Music</label><label><input type="checkbox"'+(a.ca?" checked":"")+'> Artist</label><label><input type="checkbox"'+(a.ca?" checked":"")+'> Performance</label><label><input type="checkbox"'+(a.ca?" checked":"")+'> Lyrics</label></span>'+
+      '<span class="k">Local</span><span class="opts"><label><input type="checkbox"'+(a.to?" checked":"")+'> Toronto</label></span>'+
+      '<span class="k">Artist tags</span><span class="opts"><label><input type="checkbox"> BIPOC</label><label><input type="checkbox"> 2SLGBTQIA+</label><label><input type="checkbox"> Women + gender-diverse</label></span>'+
+      '<label class="k" for="in">Notes for hosts</label><textarea id="in" rows="2" placeholder="Focus tracks, anything to bleep"></textarea>'+
+      '<span></span><span class="opts"><button class="btn solid" type="button">Add to the library</button></span>'+
+     '</div>';
+  }
+  draw();
+}
+function renderChart(){
+  var mv=["NEW","▲3","—","▼1","▲5","NEW","▼2","▲1","—","▼4"];
+  $("chart").innerHTML=A.slice(0,12).map(function(a,k){return '<div><span class="r">'+a.rank+'</span>'+(a.cover?'<img src="'+a.cover+'" alt="">':'<span class="noimg"></span>')+'<span>'+esc(a.album)+' <span class="muted">· '+esc(a.artist)+'</span>'+leaf(a)+'</span><span class="mv">'+(mv[k]||"")+'</span></div>'}).join("");
+}
+
+/* ---------- boot ---------- */
+fetch("albums.json").then(function(r){return r.json()}).then(function(d){
+  A=d;A.forEach(function(a){byRank[a.rank]=a;a.tracks=a.tracks||[]});
+  var found=A.filter(function(a){return a.found});
+  $("shelf-top").innerHTML=found.map(function(a){return albBtn(a,true)}).join("");bindAlb($("shelf-top"));
+  $("shelf-ca").innerHTML=found.filter(function(a){return a.ca}).sort(function(x,y){return y.year<x.year?-1:1}).map(function(a){return albBtn(a,false)}).join("");bindAlb($("shelf-ca"));
+  var gs={};found.forEach(function(a){if(a.genre)gs[a.genre]=1});
+  $("genre").innerHTML='<option value="">Any</option>'+Object.keys(gs).sort().map(function(g){return '<option>'+esc(g)+'</option>'}).join("");
+  renderGrid();renderEp();renderLog();renderIntake();renderChart();
+}).catch(function(){$("grid").innerHTML='<p class="empty">The album data didn\'t load. Reload the page to try again.</p>'});
+})();
+</script>
