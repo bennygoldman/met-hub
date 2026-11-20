@@ -182,7 +182,7 @@ table.plain input[type=text]{font:inherit;width:100%;min-width:90px;border:1px s
         <a class="btn" href="https://www.metradio.ca" target="_blank" rel="noopener">Listen live</a>
       </div>
       <div class="yourshow">
-        <span style="flex:1;min-width:220px">Your show is Thursday at 8. Nothing's uploaded yet, so last week's episode will run.</span>
+        <span style="flex:1;min-width:220px">Your show is Thursday at 8. Nothing uploaded yet, so the fallback is Episode 31.</span>
         <button class="linkbtn" data-go="show">Go to my show</button>
       </div>
       <div class="sec">
@@ -245,11 +245,12 @@ table.plain input[type=text]{font:inherit;width:100%;min-width:90px;border:1px s
       <h2>My show</h2>
       <div class="status">
         <b>Thursday, 8 to 9 pm</b>
-        <p>Nothing's uploaded yet. If that's still true at 7, last week's episode runs again.</p>
+        <p class="muted">Empty</p>
+        <p>Fallback: Episode 31, first aired Nov 5, 2026</p>
         <div class="row">
           <button class="btn solid">Upload an episode</button>
-          <label class="small muted" for="rerun">Rerun instead:</label>
-          <select id="rerun"><option>Last week's episode</option><option>Oldest one that hasn't rerun</option><option>Pick one…</option></select>
+          <label class="small muted" for="rerun">Change fallback:</label>
+          <select id="rerun"><option>Episode 31, Nov 5, 2026</option><option>Episode 32, Nov 12, 2026</option><option>Episode 30, Oct 29, 2026</option><option>Oldest one not yet rerun</option></select>
         </div>
       </div>
       <div class="sec">
